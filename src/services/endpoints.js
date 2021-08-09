@@ -1,0 +1,5 @@
+export const REGISTER = 'user/register/'
+export const LOGIN = 'user/login/'
+export const PERSONAL_INFO = 'user/personal_info/'
+export const DIRECTORS = 'director/view/'
+export const ADD_MOVIE = 'film/create/'
