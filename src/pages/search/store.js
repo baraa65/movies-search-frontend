@@ -19,12 +19,12 @@ export default {
 		},
 	},
 	actions: {
-		async fetchMovies({ commit }) {
+		async fetchMovies({ commit }, search) {
 			commit('setLoading', true)
-			let movies = await MoviesService.searchMovies()
+			let movies = await MoviesService.searchMovies({ search })
 
 			commit('setMovies', movies)
 			commit('setLoading', false)
-		}
-	}
+		},
+	},
 }

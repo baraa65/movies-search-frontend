@@ -2,7 +2,7 @@
 	<div class="loader" v-if="visible">
 		<div class="wrapper">
 			<div class="background" />
-			<q-img :src="Loading" style="width: 250px" />
+			<q-img :src="Loading" style="width: 250px;" />
 		</div>
 	</div>
 </template>

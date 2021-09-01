@@ -1,5 +1,5 @@
 <template>
-	<q-layout view="hHh Lpr lff">
+	<q-layout view="hHh Lpr lff" class="flex">
 		<q-header elevated>
 			<q-toolbar>
 				<q-btn
@@ -51,7 +51,7 @@
 			</q-list>
 		</q-drawer>
 
-		<q-page-container>
+		<q-page-container style="flex: 1">
 			<router-view />
 		</q-page-container>
 	</q-layout>

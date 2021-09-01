@@ -5,8 +5,8 @@
 				<q-card-section>
 					<div class="relative-position">
 						<div class="row wrap">
-							<div v-for="i in movies" :key="i" class="col-3 q-pa-md">
-								<Movie />
+							<div v-for="(movie, i) in movies" :key="i" class="col-3 q-pa-md">
+								<Movie :movie="movie"/>
 							</div>
 						</div>
 						<loader :visible="loading" />

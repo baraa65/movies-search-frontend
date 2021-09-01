@@ -1,5 +1,7 @@
 <template>
-	<q-img :src="src" />
+	<div style="height: 100%; max-width: 100%">
+		<img :src="src" @error="$event.target.src = alt" style="max-width: 100%; height: 100%" />
+	</div>
 </template>
 
 <script>
@@ -9,7 +11,10 @@ export default {
 	},
 	computed: {
 		src() {
-			return require('src/assets/movie.jpg')
+			return `http://image.tmdb.org/t/p/original${this.url}`
+		},
+		alt() {
+			return require('src/assets/movie-placeholder.png')
 		},
 	},
 }

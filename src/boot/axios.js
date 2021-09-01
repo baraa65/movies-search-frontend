@@ -3,7 +3,7 @@ import axios from 'axios'
 import notify from '../utils/api-notifications'
 import AuthManager from '../utils/auth-manager'
 
-export const api = axios.create({ baseURL: 'https://baraa.usol.ca' })
+export const api = axios.create({ baseURL: 'http://hallogen.insoftonline.de' })
 
 api.interceptors.request.use(
 	(config) => {
@@ -25,3 +25,7 @@ api.interceptors.response.use(
 )
 
 Vue.prototype.$axios = api
+
+export default async ({ store }) => {
+	store.dispatch('Categories/fetchCategories')
+}
