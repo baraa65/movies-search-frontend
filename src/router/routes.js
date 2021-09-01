@@ -13,6 +13,7 @@ const routes = [
 		children: [
 			{ path: '', component: () => import('src/pages/home/index.vue') },
 			{ path: 'movies/add', component: () => import('src/pages/add-movie/index.vue') },
+			{ path: 'movies/search', component: () => import('src/pages/search/index.vue') },
 		],
 	},
 	{

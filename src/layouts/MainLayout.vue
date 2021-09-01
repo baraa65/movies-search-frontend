@@ -32,7 +32,14 @@
 		>
 			<q-list>
 				<template v-for="(menuItem, index) in menuList">
-					<q-item clickable :active="menuItem.label === 'Outbox'" v-ripple :key="index" to="/movies/add">
+					<q-item
+						clickable
+						:active="menuItem.label === 'Outbox'"
+						exact
+						v-ripple
+						:key="index"
+						:to="menuItem.to"
+					>
 						<q-item-section avatar>
 							<q-icon :name="menuItem.icon" />
 						</q-item-section>
@@ -55,8 +62,14 @@ import AuthManager from '../utils/auth-manager'
 
 let menuList = [
 	{
-		label: 'Add Movie',
-		icon: 'add',
+		label: 'Home',
+		icon: 'home',
+		to: '/',
+	},
+	{
+		label: 'Search for a Movie',
+		icon: 'search',
+		to: '/movies/search',
 	},
 ]
 

@@ -21,7 +21,7 @@ export default {
 	actions: {
 		async fetchMovies({ commit }) {
 			commit('setLoading', true)
-			let movies = await MoviesService.getRecommendedMovies()
+			let movies = await MoviesService.searchMovies()
 
 			commit('setMovies', movies)
 			commit('setLoading', false)

@@ -1,7 +1,24 @@
 <template>
 	<div class="q-pa-xl" :class="{ loading }">
+		<div class="flex justify-center">
+			<q-form @submit="search">
+				<q-input
+					dense
+					outlined
+					label="Search"
+					style="width: 500px"
+					:loading="loading"
+					:rules="[]"
+				>
+					<template slot="prepend">
+						<q-icon name="search" />
+					</template>
+				</q-input>
+			</q-form>
+		</div>
+		<div></div>
 		<div class="q-pa-xl">
-			<q-card style="overflow: hidden; min-height: 800px">
+			<q-card style="overflow: hidden; min-height: 70vh">
 				<q-card-section>
 					<div class="relative-position">
 						<div class="row wrap">
@@ -25,13 +42,13 @@ export default {
 	components: { Movie, Loader },
 	data: () => ({}),
 	computed: {
-		...mapGetters('Home', ['loading', 'movies']),
-	},
-	mounted() {
-		this.fetchMovies()
+		...mapGetters('Search', ['loading', 'movies']),
 	},
 	methods: {
-		...mapActions('Home', ['fetchMovies']),
+		...mapActions('Search', ['fetchMovies']),
+		search() {
+			this.fetchMovies()
+		},
 	},
 }
 </script>

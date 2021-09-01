@@ -1,8 +1,8 @@
 <template>
-	<div class="card" :style="{ background: `url('${movie.image}')` }">
-		<div class="content">
+	<div class="card relative-position" :style="{ background: `url('${movie.image}')` }" @click="movieDialog = true">
+		<div class="content absolute-top">
 			<div
-				class="flex column justify-center items-center relative-position"
+				class="flex column justify-center items-center relative-position absolute-top"
 				style="height: 100%"
 			>
 				<div class="rate flex items-center">
@@ -24,32 +24,39 @@
 				</div>
 			</div>
 		</div>
+		<movie-dialog :visible="movieDialog" :movie="movie" @close="movieDialog = false" />
 	</div>
 </template>
 
 <script>
 import image from 'src/assets/movie.jpg'
+import MovieDialog from './movie-dialog'
 
 export default {
+	components: { MovieDialog },
 	props: {
 		movie: {
 			type: Object,
 			default: () => ({
 				name: 'captain marvel',
-				description: 'aa a a a a a',
+				description:
+					'It was Dec 20th, 2019 when the Miami International Science Fiction Film Festival (MiSciFi) received the feature film CARGO. It was directed and written by Arati Kadav, we were thrilled, not only because it was a world premiere, but it was from India. After viewing, it was clear that this imaginative off the wall film would be a winner of the festival. Full of twists, turns, and thought evoking power.',
 				genres: ['Adventure', 'Fantasy', 'Drama'],
 				rate: 9,
 				image,
 			}),
 		},
 	},
+	data: () => ({
+		movieDialog: false,
+	}),
 }
 </script>
 
 <style lang="scss" scoped>
 .card {
-	height: 350px;
-	width: 250px;
+	height: 0;
+	padding-top: 140%;
 	background-size: cover !important;
 	transition: transform 0.3s ease-in-out;
 	border-radius: 8px;
@@ -58,7 +65,7 @@ export default {
 	.content {
 		opacity: 0;
 		background: transparent;
-		height: 100%;
+		height: 100% !important;
 		width: 100%;
 		transition: background 0.3s ease-in-out;
 
@@ -81,6 +88,8 @@ export default {
 	}
 
 	&:hover {
+		z-index: 1;
+		box-shadow: 0 0 10px 15px rgba(0, 0,0,0.2);
 		transform: scale(1.1, 1.1);
 		.content {
 			opacity: 1;
